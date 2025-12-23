@@ -21,21 +21,7 @@ export class TennisGame1 implements TennisGame {
   getScore(): string {
     let score: string = '';
     if (this.isGameTied()) {
-      switch (this.m_score1) {
-        case 0:
-          score = 'Love-All';
-          break;
-        case 1:
-          score = 'Fifteen-All';
-          break;
-        case 2:
-          score = 'Thirty-All';
-          break;
-        default:
-          score = 'Deuce';
-          break;
-
-      }
+      score = this.getTiedScore();
     }
     else if (this.isGameDeuce()) {
       const minusResult: number = this.m_score1 - this.m_score2;
@@ -74,5 +60,26 @@ export class TennisGame1 implements TennisGame {
 
   private isGameDeuce(): boolean {
     return this.m_score1 >= 4 || this.m_score2 >= 4;
+  }
+
+  private getTiedScore(): string {
+    let score: string = '';
+
+    switch (this.m_score1) {
+      case 0:
+        score = 'Love-All';
+        break;
+      case 1:
+        score = 'Fifteen-All';
+        break;
+      case 2:
+        score = 'Thirty-All';
+        break;
+      default:
+        score = 'Deuce';
+        break;
+    }
+
+    return score;
   }
 }
