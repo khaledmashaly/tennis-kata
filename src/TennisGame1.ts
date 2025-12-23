@@ -19,17 +19,9 @@ export class TennisGame1 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string = '';
-    if (this.isGameTied()) {
-      score = this.getTiedScore();
-    }
-    else if (this.isGameDeuce()) {
-      score = this.getDeuceScore();
-    }
-    else {
-      score = this.getNormalGameScore();
-    }
-    return score;
+    if (this.isGameTied()) return this.getTiedScore();
+    if (this.isGameDeuce()) return this.getDeuceScore();
+    return this.getNormalGameScore();
   }
 
   private isGameTied(): boolean {
