@@ -24,11 +24,7 @@ export class TennisGame1 implements TennisGame {
       score = this.getTiedScore();
     }
     else if (this.isGameDeuce()) {
-      const minusResult: number = this.m_score1 - this.m_score2;
-      if (minusResult === 1) score = 'Advantage player1';
-      else if (minusResult === -1) score = 'Advantage player2';
-      else if (minusResult >= 2) score = 'Win for player1';
-      else score = 'Win for player2';
+      score = this.getDeuceScore();
     }
     else {
       let tempScore: number = 0;
@@ -80,6 +76,16 @@ export class TennisGame1 implements TennisGame {
         break;
     }
 
+    return score;
+  }
+
+  private getDeuceScore(): string {
+    let score: string = '';
+    const minusResult: number = this.m_score1 - this.m_score2;
+    if (minusResult === 1) score = 'Advantage player1';
+    else if (minusResult === -1) score = 'Advantage player2';
+    else if (minusResult >= 2) score = 'Win for player1';
+    else score = 'Win for player2';
     return score;
   }
 }
