@@ -1,0 +1,49 @@
+# Node
+node_modules/
+.pnp.cjs
+.pnp.js
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build / output
+dist/
+build/
+lib/
+out/
+coverage/
+.nyc_output/
+*.tgz
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc caches
+.cache/
+.next/
+.vite/
+.esbuild/
