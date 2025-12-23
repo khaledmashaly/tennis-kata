@@ -20,7 +20,6 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     let score: string = '';
-    let tempScore: number = 0;
     if (this.m_score1 === this.m_score2) {
       switch (this.m_score1) {
         case 0:
@@ -46,6 +45,7 @@ export class TennisGame1 implements TennisGame {
       else score = 'Win for player2';
     }
     else {
+      let tempScore: number = 0;
       for (let i = 1; i < 3; i++) {
         if (i === 1) tempScore = this.m_score1;
         else { score += '-'; tempScore = this.m_score2; }
