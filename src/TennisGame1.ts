@@ -12,16 +12,22 @@ export class TennisGame1 implements TennisGame {
   }
 
   wonPoint(playerName: string): void {
-    if (playerName === 'player1')
-      this.m_score1 += 1;
-    else
-      this.m_score2 += 1;
+    if (playerName === 'player1') this.addPointToFirstPlayer();
+    else this.addPointToSecondPlayer();
   }
 
   getScore(): string {
     if (this.isGameTied()) return this.getTiedScore();
     if (this.isGameDeuce()) return this.getDeuceScore();
     return this.getNormalGameScore();
+  }
+
+  private addPointToFirstPlayer(): void {
+    this.m_score1 += 1;
+  }
+
+  private addPointToSecondPlayer(): void {
+    this.m_score2 += 1;
   }
 
   private isGameTied(): boolean {
