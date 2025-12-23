@@ -20,7 +20,7 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     let score: string = '';
-    if (this.m_score1 === this.m_score2) {
+    if (this.isGameTied()) {
       switch (this.m_score1) {
         case 0:
           score = 'Love-All';
@@ -66,5 +66,9 @@ export class TennisGame1 implements TennisGame {
       }
     }
     return score;
+  }
+
+  private isGameTied(): boolean {
+    return this.m_score1 === this.m_score2;
   }
 }
