@@ -39,24 +39,13 @@ export class TennisGame1 implements TennisGame {
   }
 
   private getTiedScore(): string {
-    let score: string = '';
+    const scores: Record<number, string> = {
+      0: 'Love-All',
+      1: 'Fifteen-All',
+      2: 'Thirty-All',
+    };
 
-    switch (this.m_score1) {
-      case 0:
-        score = 'Love-All';
-        break;
-      case 1:
-        score = 'Fifteen-All';
-        break;
-      case 2:
-        score = 'Thirty-All';
-        break;
-      default:
-        score = 'Deuce';
-        break;
-    }
-
-    return score;
+    return scores[this.m_score1] ?? 'Deuce';
   }
 
   private getDeuceScore(): string {
