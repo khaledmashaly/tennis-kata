@@ -52,13 +52,13 @@ export class TennisGame1 implements TennisGame {
    * Score when one of the players has 4 or more points.
    */
   private getScoreAboveForty(): string {
-    let score: string = '';
-    const minusResult: number = this.m_score1 - this.m_score2;
-    if (minusResult === 1) score = 'Advantage player1';
-    else if (minusResult === -1) score = 'Advantage player2';
-    else if (minusResult >= 2) score = 'Win for player1';
-    else score = 'Win for player2';
-    return score;
+    const scoreDiff = this.m_score1 - this.m_score2;
+
+    if (scoreDiff === 1) return 'Advantage player1';
+    if (scoreDiff === -1) return 'Advantage player2';
+    if (scoreDiff >= 2) return 'Win for player1';
+
+    return 'Win for player2';
   }
 
   /**
