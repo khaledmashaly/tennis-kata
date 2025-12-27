@@ -18,7 +18,7 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     if (this.isGameTied()) return this.getTiedScore();
-    if (this.isGameDeuce()) return this.getDeuceScore();
+    if (this.isScoreAboveForty()) return this.getScoreAboveForty();
     return this.getNormalGameScore();
   }
 
@@ -34,7 +34,7 @@ export class TennisGame1 implements TennisGame {
     return this.m_score1 === this.m_score2;
   }
 
-  private isGameDeuce(): boolean {
+  private isScoreAboveForty(): boolean {
     return this.m_score1 >= 4 || this.m_score2 >= 4;
   }
 
@@ -48,7 +48,10 @@ export class TennisGame1 implements TennisGame {
     return scores[this.m_score1] ?? 'Deuce';
   }
 
-  private getDeuceScore(): string {
+  /**
+   * Score when one of the players has 4 or more points.
+   */
+  private getScoreAboveForty(): string {
     let score: string = '';
     const minusResult: number = this.m_score1 - this.m_score2;
     if (minusResult === 1) score = 'Advantage player1';
