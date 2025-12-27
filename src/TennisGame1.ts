@@ -65,28 +65,13 @@ export class TennisGame1 implements TennisGame {
    * Get game score when not tied or deuce.
    */
   private getNormalGameScore(): string {
-    let score: string = '';
-    let tempScore: number = 0;
+    const scores: Record<number, string> = {
+      0: 'Love',
+      1: 'Fifteen',
+      2: 'Thirty',
+      3: 'Forty',
+    };
 
-    for (let i = 1; i < 3; i++) {
-      if (i === 1) tempScore = this.m_score1;
-      else { score += '-'; tempScore = this.m_score2; }
-      switch (tempScore) {
-        case 0:
-          score += 'Love';
-          break;
-        case 1:
-          score += 'Fifteen';
-          break;
-        case 2:
-          score += 'Thirty';
-          break;
-        case 3:
-          score += 'Forty';
-          break;
-      }
-    }
-
-    return score;
+    return `${scores[this.m_score1]}-${scores[this.m_score2]}`;
   }
 }
